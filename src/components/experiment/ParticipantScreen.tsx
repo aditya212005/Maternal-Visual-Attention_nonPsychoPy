@@ -1,0 +1,42 @@
+interface ParticipantScreenProps {
+  participantId: string;
+  onParticipantIdChange: (value: string) => void;
+  onStart: () => void;
+}
+
+export function ParticipantScreen({
+  participantId,
+  onParticipantIdChange,
+  onStart,
+}: ParticipantScreenProps) {
+  return (
+    <section className="intro-screen" aria-labelledby="participant-title">
+      <div className="intro-panel">
+        <p className="eyebrow">Research study</p>
+        <h1 id="participant-title">Maternal Visual Attention</h1>
+        <p className="intro-copy">Enter your participant ID to begin.</p>
+        <form
+          className="participant-form"
+          onSubmit={(event) => {
+            event.preventDefault();
+            onStart();
+          }}
+        >
+          <label htmlFor="participant-id">Participant ID</label>
+          <input
+            id="participant-id"
+            type="text"
+            value={participantId}
+            onChange={(event) => onParticipantIdChange(event.target.value)}
+            autoComplete="off"
+            autoFocus
+            required
+          />
+          <button type="submit" disabled={!participantId.trim()}>
+            Start
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}

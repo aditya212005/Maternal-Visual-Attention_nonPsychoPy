@@ -216,3 +216,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Node.js and Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Local configuration and research data
+.env*
+!.env.example
+data/
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal

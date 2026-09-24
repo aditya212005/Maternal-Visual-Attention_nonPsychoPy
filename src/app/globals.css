@@ -1,0 +1,247 @@
+:root {
+  color-scheme: light;
+  --background: #f6f7f4;
+  --foreground: #17212b;
+  --muted: #60717a;
+  --line: #dce2e2;
+  --accent: #2b6570;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+main {
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 4px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.85rem 1.5rem;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #d49a44;
+  outline-offset: 3px;
+}
+
+.experiment-app {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.intro-screen {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.intro-panel {
+  max-width: 38rem;
+  width: 100%;
+}
+
+.eyebrow,
+.summary-label,
+.trial-status {
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.98;
+  margin: 0 0 1.25rem;
+}
+
+.intro-copy,
+.instructions-copy {
+  color: var(--muted);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+.instructions-copy p {
+  margin: 0 0 0.85rem;
+}
+
+.instructions-copy strong {
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.participant-form {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 22rem;
+}
+
+.participant-form label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.participant-form input {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  padding: 0.85rem;
+}
+
+.participant-form button {
+  justify-self: start;
+  margin-top: 0.75rem;
+}
+
+.trial-screen {
+  min-height: 100vh;
+  position: relative;
+}
+
+.trial-status {
+  left: 2rem;
+  position: absolute;
+  top: 1.5rem;
+}
+
+.trial-field {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.fixation {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.stimulus-pair {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10vw;
+  width: 100%;
+}
+
+.stimulus-image {
+  height: auto;
+  max-width: min(30vw, 20rem);
+  width: 30vw;
+}
+
+.stimulus-image--left {
+  order: 1;
+}
+
+.stimulus-image--right {
+  order: 2;
+}
+
+.probe {
+  background: var(--foreground);
+  border-radius: 50%;
+  height: 1.25rem;
+  position: absolute;
+  width: 1.25rem;
+}
+
+.probe--left {
+  left: 25%;
+}
+
+.probe--right {
+  right: 25%;
+}
+
+.development-summary {
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  padding: 0.25rem 0 0.25rem 1rem;
+}
+
+.development-summary p {
+  margin: 0.25rem 0;
+}
+
+.development-summary .summary-label {
+  color: var(--accent);
+  margin-bottom: 0.65rem;
+}
+
+@media (max-width: 600px) {
+  .intro-screen {
+    align-items: flex-start;
+    padding: 5rem 1.5rem 2rem;
+  }
+
+  .stimulus-pair {
+    padding: 0 5vw;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  .stimulus-image {
+    max-width: 42vw;
+    width: 42vw;
+  }
+
+  .probe--left {
+    left: 18%;
+  }
+
+  .probe--right {
+    right: 18%;
+  }
+}
