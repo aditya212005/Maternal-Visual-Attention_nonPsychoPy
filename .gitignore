@@ -231,3 +231,4 @@ data/
 *.sqlite3
 *.db
 *.db-journal
+*.csv

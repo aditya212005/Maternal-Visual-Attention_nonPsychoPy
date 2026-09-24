@@ -2,12 +2,16 @@ interface ParticipantScreenProps {
   participantId: string;
   onParticipantIdChange: (value: string) => void;
   onStart: () => void;
+  isStarting: boolean;
+  error: string | null;
 }
 
 export function ParticipantScreen({
   participantId,
   onParticipantIdChange,
   onStart,
+  isStarting,
+  error,
 }: ParticipantScreenProps) {
   return (
     <section className="intro-screen" aria-labelledby="participant-title">
@@ -32,9 +36,10 @@ export function ParticipantScreen({
             autoFocus
             required
           />
-          <button type="submit" disabled={!participantId.trim()}>
-            Start
+          <button type="submit" disabled={!participantId.trim() || isStarting}>
+            {isStarting ? "Starting..." : "Start"}
           </button>
+          {error && <p className="form-error" role="alert">{error}</p>}
         </form>
       </div>
     </section>

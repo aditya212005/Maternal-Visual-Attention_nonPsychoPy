@@ -6,6 +6,8 @@ interface TrialScreenProps {
   totalTrials: number;
   stimulus: TrialStimulus;
   dotPosition: Position;
+  persistenceError: string | null;
+  onRetry: (() => void) | null;
 }
 
 export function TrialScreen({
@@ -14,6 +16,8 @@ export function TrialScreen({
   totalTrials,
   stimulus,
   dotPosition,
+  persistenceError,
+  onRetry,
 }: TrialScreenProps) {
   return (
     <section className="trial-screen" aria-label="Experiment trial">
@@ -28,6 +32,12 @@ export function TrialScreen({
         )}
         {stage === "probe" && <span className={`probe probe--${dotPosition.toLowerCase()}`} aria-label={`Dot on the ${dotPosition.toLowerCase()}`} />}
       </div>
+      {persistenceError && (
+        <div className="persistence-error" role="alert">
+          <p>{persistenceError}</p>
+          {onRetry && <button type="button" onClick={onRetry}>Retry save</button>}
+        </div>
+      )}
     </section>
   );
 }
