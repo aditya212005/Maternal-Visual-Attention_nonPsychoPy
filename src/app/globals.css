@@ -273,3 +273,339 @@ h1 {
     right: 18%;
   }
 }
+
+/* Researcher data-management surface */
+.researcher-app {
+  min-height: 100vh;
+  background: #eef2f1;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.researcher-header {
+  align-items: center;
+  background: #172f35;
+  color: #f4f7f5;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25rem 4vw;
+}
+
+.researcher-eyebrow {
+  color: #79b4b2;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.researcher-brand {
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  text-decoration: none;
+}
+
+.researcher-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: flex-end;
+}
+
+.researcher-nav a {
+  color: #d9e7e5;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.researcher-nav a:hover,
+.researcher-table a:hover {
+  text-decoration: underline;
+}
+
+.researcher-content {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 3rem 4vw 5rem;
+}
+
+.researcher-page-heading,
+.researcher-section-heading {
+  align-items: flex-start;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.researcher-page-heading h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.2rem;
+  margin: 0 0 0.8rem;
+}
+
+.researcher-page-heading p,
+.researcher-section p,
+.researcher-section-heading p {
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.researcher-button {
+  background: var(--accent);
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.researcher-button-secondary {
+  background: #dce8e7;
+  color: #24515a;
+}
+
+.researcher-stat-grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-bottom: 2rem;
+}
+
+.researcher-stat-card {
+  background: #fff;
+  border-top: 3px solid #79b4b2;
+  min-height: 8.5rem;
+  padding: 1.1rem;
+}
+
+.researcher-stat-card p,
+.researcher-stat-card span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.78rem;
+  margin: 0 0 0.8rem;
+}
+
+.researcher-stat-card strong {
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 0.45rem;
+}
+
+.researcher-section {
+  background: #fff;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+.researcher-section h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 1rem;
+}
+
+.researcher-note {
+  border-left: 4px solid #79b4b2;
+}
+
+.researcher-toolbar {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.researcher-toolbar label,
+.researcher-section-heading label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.researcher-toolbar input,
+.researcher-section-heading select {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--foreground);
+  padding: 0.6rem 0.7rem;
+}
+
+.researcher-table-wrap {
+  overflow-x: auto;
+}
+
+.researcher-table {
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 760px;
+  width: 100%;
+}
+
+.researcher-table th {
+  background: #f0f4f3;
+  color: #4b6267;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  padding: 0.75rem;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.researcher-table td {
+  border-bottom: 1px solid #e5ebea;
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
+.researcher-table a,
+.researcher-breadcrumb a {
+  color: #245f6a;
+  font-weight: 700;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3rem 0.5rem;
+  white-space: nowrap;
+}
+
+.status-completed {
+  background: #dcefe6;
+  color: #246344;
+}
+
+.status-in_progress {
+  background: #fff0d5;
+  color: #805518;
+}
+
+.researcher-meta-grid,
+.researcher-stat-grid-compact {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.researcher-meta-grid > div,
+.researcher-stat-grid-compact > div {
+  background: #fff;
+  min-height: 5.5rem;
+  padding: 1rem;
+}
+
+.researcher-meta-grid span,
+.researcher-stat-grid-compact span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.researcher-meta-grid strong,
+.researcher-stat-grid-compact strong {
+  font-size: 0.95rem;
+}
+
+.researcher-stat-grid-compact {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  margin-bottom: 1rem;
+}
+
+.researcher-muted,
+.researcher-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.researcher-error {
+  background: #fff2ef;
+  border: 1px solid #e5b9a7;
+  color: #9b2c2c;
+  padding: 0.9rem 1rem;
+}
+
+.researcher-breadcrumb {
+  font-size: 0.85rem;
+  margin: 0 0 2rem;
+}
+
+.researcher-trial-table {
+  min-width: 1350px;
+}
+
+.stimulus-cell {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  max-width: 11rem;
+}
+
+.stimulus-cell img {
+  background: #f0f4f3;
+  height: 3rem;
+  object-fit: contain;
+  width: 4rem;
+}
+
+.stimulus-cell span {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .researcher-stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .researcher-stat-grid-compact {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .researcher-header,
+  .researcher-page-heading,
+  .researcher-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .researcher-header {
+    gap: 1rem;
+  }
+
+  .researcher-nav {
+    justify-content: flex-start;
+  }
+
+  .researcher-content {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .researcher-page-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .researcher-stat-grid,
+  .researcher-stat-grid-compact,
+  .researcher-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .researcher-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
