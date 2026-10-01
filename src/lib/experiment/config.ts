@@ -5,7 +5,7 @@ export const DEVELOPMENT_TIMING = {
   fixationDurationMs: 800,
   imagePresentationDurationMs: 1200,
   blankIntervalDurationMs: 500,
-  numberOfTrials: 4,
+  numberOfTrials: 20,
 } as const;
 
 export const RESPONSE_KEYS: Record<Position, ResponseKey> = {
