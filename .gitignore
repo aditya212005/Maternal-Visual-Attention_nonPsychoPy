@@ -15,6 +15,13 @@ downloads/
 eggs/
 .eggs/
 lib/
+!src/lib/
+!src/lib/experiment/
+!src/lib/experiment/config.ts
+!src/lib/experiment/types.ts
+!src/lib/server/
+src/lib/server/*
+!src/lib/server/stimuli.ts
 lib64/
 parts/
 sdist/

@@ -7,11 +7,11 @@ import { ParticipantScreen } from "@/components/experiment/ParticipantScreen";
 import { TrialScreen } from "@/components/experiment/TrialScreen";
 import {
   chooseDevelopmentDotPosition,
-  createDevelopmentTrials,
+  createStimulusTrials,
   DEVELOPMENT_TIMING,
   RESPONSE_KEYS,
 } from "@/lib/experiment/config";
-import type { ExperimentStage, ResponseKey, TrialResult } from "@/lib/experiment/types";
+import type { ExperimentStage, ResponseKey, StimulusDataset, TrialResult, TrialStimulus } from "@/lib/experiment/types";
 
 export default function Home() {
   const [stage, setStage] = useState<ExperimentStage>("participant");
@@ -20,7 +20,7 @@ export default function Home() {
   const [isStarting, setIsStarting] = useState(false);
   const [persistenceError, setPersistenceError] = useState<string | null>(null);
   const [canRetry, setCanRetry] = useState(false);
-  const [trials] = useState(createDevelopmentTrials);
+  const [trials, setTrials] = useState<TrialStimulus[]>([]);
   const [trialIndex, setTrialIndex] = useState(0);
   const [dotPosition, setDotPosition] = useState(chooseDevelopmentDotPosition);
   const [results, setResults] = useState<TrialResult[]>([]);
@@ -158,6 +158,13 @@ export default function Home() {
     setPersistenceError(null);
     setCanRetry(false);
     try {
+      const stimuliResponse = await fetch("/api/stimuli");
+      const stimuliBody = await stimuliResponse.json() as StimulusDataset & { error?: string };
+      if (!stimuliResponse.ok) {
+        throw new Error(stimuliBody.error ?? "The stimulus dataset could not be loaded.");
+      }
+      const randomizedTrials = createStimulusTrials(stimuliBody.adults, stimuliBody.babies);
+
       const response = await fetch("/api/sessions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -168,6 +175,7 @@ export default function Home() {
         throw new Error(body.error ?? "The session could not be started.");
       }
       setParticipantId(normalizedParticipantId);
+      setTrials(randomizedTrials);
       setSessionId(body.sessionId);
       setStage("instructions");
     } catch (error) {
