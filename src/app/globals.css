@@ -174,15 +174,19 @@ h1 {
 .stimulus-pair {
   align-items: center;
   display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
   justify-content: space-between;
-  padding: 0 10vw;
+  padding: 0 2.5vw;
   width: 100%;
+  --stimulus-size: min(46vw, 74vh, 34rem);
 }
 
 .stimulus-image {
-  height: auto;
-  max-width: min(30vw, 20rem);
-  width: 30vw;
+  display: block;
+  flex: 0 0 var(--stimulus-size);
+  height: var(--stimulus-size);
+  object-fit: contain;
+  width: var(--stimulus-size);
 }
 
 .stimulus-image--left {
@@ -253,16 +257,13 @@ h1 {
   }
 
   .stimulus-pair {
-    padding: 0 5vw;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    padding: 0 0.75vw;
+    --stimulus-size: min(46vw, 74vh, 34rem);
   }
 
   h1 {
     font-size: 2.75rem;
-  }
-
-  .stimulus-image {
-    max-width: 42vw;
-    width: 42vw;
   }
 
   .probe--left {
